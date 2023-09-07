@@ -8,7 +8,14 @@
 /* Basic styling for the website */
 body {
     font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
+    background-color: var(--gray);
+    color: var(--white);
+}
+
+/* desclare the variables */
+:root {
+    --gray: #1d2a35;
+    --white: white;
 }
 
 html {
@@ -23,7 +30,7 @@ html {
 
 /* Customize the scrollbar thumb (the draggable part) */
 ::-webkit-scrollbar-thumb {
-    background-color: #333;
+    background-color: var(--white);
     /* Color of the thumb */
     border-radius: 5px;
     /* Rounded corners for the thumb */
@@ -36,12 +43,12 @@ html {
 
 /* Customize the scrollbar track when it's active (being dragged) */
 ::-webkit-scrollbar-thumb:active {
-    background-color: #777;
+    background-color: var(--gray);
 }
 
 /* Customize the scrollbar track */
 ::-webkit-scrollbar-track {
-    background-color: #f0f0f0;
+    background-color: var(--gray);
     /* Color of the track */
 }
 
@@ -53,10 +60,19 @@ html {
 }
 
 header {
-    background-color: #333;
-    color: #fff;
-    padding: 10px 0;
+    background-color: var(--gray);
+    color: var(--white);
+    height: 6rem;
+    z-index: 100;
+    position: sticky;
+    top: 0;
+    align-items: center;
 }
+
+.open_dropdown_container img {
+    display: none;
+}
+
 
 nav ul {
     list-style: none;
@@ -70,28 +86,46 @@ nav ul li {
 
 nav a {
     text-decoration: none;
-    color: #fff;
+    color: var(--white);
     font-weight: bold;
+}
+
+
+
+.dropdowncontainer ul li {
+    margin-top: 5px;
+}
+
+#opendropdownimg {
+    height: 2rem;
 }
 
 .hero {
     background-image: url('img/3.jpg');
+    opacity: 0.7;
     background-size: cover;
     text-align: center;
-    color: #fff;
+    color: var(--white);
     height: 54rem;
     padding: 200px 0;
+
 }
 
 .hero h2 {
     font-size: 36px;
     margin-bottom: 20px;
+    color: var(--gray);
+}
+
+.hero p {
+    color: var(--gray);
 }
 
 .cta-button {
     display: inline-block;
-    background-color: #e74c3c;
-    color: #fff;
+    margin-top: 20px;
+    background-color: var(--gray);
+    color: var(--white);
     padding: 10px 20px;
     border-radius: 5px;
     text-decoration: none;
@@ -99,52 +133,138 @@ nav a {
 }
 
 .cta-button:hover {
-    background-color: #c0392b;
+    background-color: #1d2a3593;
 }
 
 /* about section */
 .about {
     height: 20rem;
-    background-color: #fff;
+    background-color: var(--gray);
     padding: 40px 0;
 }
 
 /* blog section */
 .blog {
-    height: 20rem;
-    background-color: #fff;
-    padding: 40px 0;
+    /* background-color: var(--gray); */
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 /* contact section */
 .contact {
     height: 20rem;
-    background-color: #fff;
+    background-color: var(--gray);
     padding: 40px 0;
 }
 
 /* services section */
 .services {
     height: 20rem;
-    background-color: #fff;
+    background-color: var(--gray);
     padding: 40px 0;
 }
 
 
 
 footer {
-    background-color: #333;
-    color: #fff;
+    background-color: var(--gray);
+    color: var(--white);
     text-align: center;
     padding: 10px 0;
 }
+
+
+/* card css  */
+.blogsContainer {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    margin-top: 13rem;
+    width: 90%;
+
+}
+
+.card {
+    max-width: 400px;
+    margin: 1rem auto;
+    border: 1px solid #ddd;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s;
+    border-radius: 1rem;
+    backdrop-filter: blur(59px);
+
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+/* Styling for the card image */
+.card img {
+    margin-top: 11px;
+    max-width: 94%;
+    height: auto;
+    border-radius: 1rem;
+}
+
+/* Styling for card content */
+.card-content {
+    padding: 20px;
+}
+
+.card-title {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.card-description {
+    font-size: 16px;
+    color: #555;
+    margin-bottom: 15px;
+}
+
+.card-button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #007BFF;
+    color: var(--white);
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+.card-button:hover {
+    background-color: #0056b3;
+}
+
+
+/* classes section  */
+
+.classes {
+    padding-top: 13rem;
+}
+
+/* hidden class  */
+.hidden {
+    display: none;
+}
+
+
+
+/* Responsive design */
+@media screen and (max-width: 768px) {
+    .card {
+        max-width: 100%;
+    }
+}
+
 
 @media only screen and (max-width: 1052px) {
     .hero {
         background-image: url('img/6.jpg');
         background-size: cover;
         text-align: center;
-        color: #fff;
+        color: var(--white);
         height: 54rem;
         padding: 200px 0;
     }
@@ -157,8 +277,89 @@ footer {
         background-image: url('img/7.jpg');
         background-size: cover;
         text-align: center;
-        color: #fff;
+        color: var(--white);
         height: 54rem;
         padding: 200px 0;
+    }
+}
+
+@media only screen and (max-width: 1435px) {
+    .blogsContainer {
+        grid-template-columns: 1fr 1fr;
+    }
+
+
+    .classes {
+        padding-top: 38rem;
+    }
+}
+
+@media only screen and (max-width: 965px) {
+    .blogsContainer {
+        grid-template-columns: 1fr;
+    }
+
+    .classes {
+        padding-top: 87rem;
+    }
+}
+
+
+/* dropdowncontainer */
+.transform {
+    transform: translateY(-95px) !important;
+    transition: transform 400ms;
+}
+
+.dropdown_container {
+    padding-top: 1rem;
+    transform: translateY(-416px);
+    transition: transform 400ms;
+    display: flex;
+    justify-content: space-around;
+    z-index: 101;
+    height: 20rem;
+    background-color: var(--gray);
+    color: white;
+}
+
+.dropdown_container ul {
+    display: flex;
+    flex-direction: column;
+}
+
+.dropdown_container ul li {
+    list-style: none;
+    margin-top: 20px;
+}
+
+.dropdown_container ul li a {
+    
+    text-decoration: none;
+    color: var(--white);
+}
+
+.close_dropdown_container img {
+    margin-top: 20px;
+    height: 1.5rem;
+}
+
+/* nav bar media query  */
+
+@media only screen and (max-width: 641px) {
+
+    #container ul {
+        display: none;
+    }
+
+    #container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .open_dropdown_container img {
+        display: block;
+        height: 2rem;
     }
 }
